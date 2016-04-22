@@ -22,19 +22,44 @@
 
   
   var xjs = require('xjs');
-
+var XJS = require('xjs');
   /*xjs.ready().then(function() {
     // Write your code here
   });*/
   
   xjs.ready().then(function() { 
-
-xjs.Scene.getActiveScene()
-.then(function(scene) {
-alert('hi');
-
-});
-  var Scene = xjs.Scene.getById(1);
+  
+  for (var i = 1; i <= 12; i++) {
+  (function(idx) {
+    var scene = xjs.Scene.getById(idx);
+//console.log(scene);
+    scene.getSources().then(function(sources) {
+	//alert(idx);
+      for (var i in sources) {
+	
+      if (sources[i] instanceof XJS.HtmlSource) {
+	
+	  }
+	  }
+    });
+  })(i);
+}
+  
+  
+  
+  
+ /* 
+  
+XJS.Scene.getActiveScene().then(function(scene) {
+  scene.getSources().then(function(sources) {
+  console.log('bhupinder',sources);
+    for (var i in sources) {
+      if (sources[i] instanceof XJS.HtmlSource) {
+        // Manipulate your HTML source here
+		
+		
+		
+		  var Scene = xjs.Scene.getById(1);
 
 Scene.getSources().then(function(sources) {
 
@@ -45,12 +70,18 @@ Scene.getSources().then(function(sources) {
 
   
   
-  return source.setCustomName('SourceTesting');
+  return source.setCustomName('testing');
 }).then(function(source) {
 
  //source.duplicate();
  
 });
   
+        sources[i].enableBrowserTransparency(true);
+      }
+    }
+  });
+});
+*/
   
 })})();
