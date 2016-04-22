@@ -1,0 +1,10 @@
+.singleContainer{max-width:916px; margin:0px auto; padding:0px;}
+.singleContainer > img{max-width:100%;}
+
+.container{max-width:1278px; margin:0px auto; padding:0px;}
+.container > div{float:left; width:50%; }
+.container > div > img{max-width:100%; margin:0px; padding:0px; border:none; display:block;}
+
+@media screen and (max-width:639px){
+.container > div{width:100%;}
+}
