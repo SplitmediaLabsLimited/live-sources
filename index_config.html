@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="xsplit:config-url" content="./config.html">
+    <title>sourceplugin Properties Editor</title>
+  </head>
+  <body>
+    <script src="js/xjs.js"></script>
+    <script>
+      (function() {
+        'use strict';
+
+        var xjs = require('xjs');
+
+        xjs.ready().then(function() {
+          xjs.SourcePropsWindow.getInstance().useTabbedWindow({
+            customTabs: ['Custom'],
+            tabOrder: ['Custom', 'Color', 'Layout', 'Transition']
+          });
+        });
+
+        // Disable backspace event to prevent breaking your source prop window
+        document.onkeydown = function(event) {
+          if (
+            event.target.nodeName !== 'INPUT' && 
+            event.target.nodeName !== 'TEXTAREA' &&
+            event.keyCode === 8
+          ) {
+            return false;
+          }
+        }
+
+		
+		
+		
+		
+        // Disable context menu
+        document.oncontextmenu = function() { return false; };
+
+        // Functions that are executed by XBC. We need to handle these to
+        // prevent unwanted error messages
+        window.OnDialogLoadStart = function() {};
+        window.OnDialogTitleChange = function() {};
+        window.OnDialogBeforeNavigation = function() {};
+        window.SetVolume = function() {};
+        window.GetPlayState = function() {};
+      })();
+    </script>
+	
+	<div>
+	<button id="save">copy all the images </button>
+<script>
+  var save = document.getElementById('save');
+
+  save.addEventListener('click', function() {
+ 	 
+  var xjs = require('xjs');
+
+  xjs.ready().then(function() { 
+  var myScene;
+  var Scene=xjs.Scene;
+  
+   xjs.Scene.getActiveScene().then(function(scene) {
+  
+            scene.getSceneNumber().then(function(id) {
+              var actsceneid = id;
+			   
+				  for (var i = 1; i <= 12; i++) {
+  (function(idx) {
+
+    var currscene = xjs.Scene.getById(idx);
+	
+	
+	if(actsceneid!=idx){
+
+    currscene.getSources().then(function(sources) {
+	 /*if (sources.length === 0) {
+	 alert(sources.length);
+	 
+	 }else
+	 {
+	 alert(sources.length);	
+	 }*/
+	 
+
+      for (var i in sources) {
+	
+
+      if (sources[i] instanceof xjs.HtmlSource) {
+	 
+	  var url;
+	  sources[i].getURL().then(function(url) {
+
+	  
+	  var actscene=xjs.Scene.getById(actsceneid);
+	  var File = xjs.File;
+
+var filePromise = new File(url).addToScene();
+	 // sources[i].addToScene();
+	  
+	  
+actscene.getSources().then(function(url) {
+
+  if (sources.length === 0) return;
+
+  // There's a valid source, let's use that
+ // var source = sources[i];
+
+  //alert(source);
+  sources[i].enableBrowserTransparency(true);
+  return source.setCustomName('testingtesting');
+}).then(function(url) {
+if(url){
+//alert(url);
+
+}
+ 
+});});
+		
+	  }
+	  }
+    });
+	}
+  })(i);
+}
+            })
+          });
+ 
+
+		 
+
+
+});
+   // mySource.requestSaveConfig({ some: 'data of yours' });
+  });
+</script>
+	</div>
+	
+  </body>
+</html>

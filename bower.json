@@ -1,5 +1,5 @@
 {
-  "name": "demoplugin",
+  "name": "sourceplugin",
   "version": "0.0.0",
   "dependencies": {
     "xjs-framework": null
